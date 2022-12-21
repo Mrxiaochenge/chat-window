@@ -8,11 +8,11 @@ import http from './http.config';
 // 暴露请求配置
 export const httpConfig = http.defaults;
 
-// 模拟用户请求
-export const getUserInfo = () => {
-  return http.get<UserInfo>('/login');
+// 登录
+export const getUserInfo = (data: any) => {
+  return http.post<UserInfo>('/login', data);
 };
-
+// register
 // 模拟请求列表
 export const getList = (params: ListOpts) => {
   return http.get('/list', { params });

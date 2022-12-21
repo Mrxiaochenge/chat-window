@@ -7,13 +7,14 @@
  * @任何一个傻子都能写出让电脑能懂的代码，而只有好的程序员可以写出让人能看懂的代码
  */
 import { default as http } from 'axios';
+import store from '@/store';
 
 /** 定义默认配置 */
-http.defaults.baseURL = '';
+http.defaults.baseURL = 'http://today.ouwentao.com/api';
 http.defaults.headers.common = {};
-
 /** 添加请求拦截器 */
 http.interceptors.request.use(config => {
+  config.headers['Authorization'] = store.state.token;
   if (config.custom?.load) {
     throw new Error('错误!, 加载并未实现!');
   }

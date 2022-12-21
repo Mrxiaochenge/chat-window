@@ -56,6 +56,7 @@
 </template>
 
 <script>
+import { createSocket, onmessageWS, sendWSPush } from '@/utils/websocke.js';
 export default {
   data() {
     return {
@@ -66,6 +67,9 @@ export default {
     changeCurrent(index) {
       this.currentIndex = index;
     },
+  },
+  created() {
+    createSocket('ws://today.ouwentao.com/ws', this.$store.state.token);
   },
 };
 </script>

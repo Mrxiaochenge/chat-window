@@ -12,15 +12,15 @@ Vue.use(Vuex);
 /* 注意: count为示例案例, 项目中请自行删除 */
 export default new Vuex.Store({
   state: {
-    count: 18,
+    token: '',
   },
   mutations: {
-    [RECEIVE_COUNT]: (state, count) => (state.count = count),
+    [RECEIVE_COUNT]: (state, token) => (state.token = token),
   },
   actions: {
-    // 接收count
-    recCount({ commit }, count) {
-      commit(RECEIVE_COUNT, count);
+    // 接收token
+    recToken({ commit }, token) {
+      commit(RECEIVE_COUNT, token);
     },
   },
   getters: {},

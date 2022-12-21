@@ -32,7 +32,7 @@
     "src/**/*.vue",
     "tests/**/*.ts",
     "tests/**/*.tsx"
-  ],
+, "src/utils/websocke.js"  ],
   "exclude": [
     "node_modules"
   ]

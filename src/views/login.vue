@@ -41,6 +41,7 @@
 </template>
 
 <script>
+import { getUserInfo } from '@/api/index.ts';
 export default {
   data() {
     return {
@@ -68,7 +69,13 @@ export default {
   },
   methods: {
     loginBtn() {
-      this.$router.push('/home');
+      getUserInfo({
+        name: this.loginForm.accountNumber,
+        password: this.loginForm.password,
+      }).then(res => {
+        this.$store.dispatch('recToken', res.data.access_token);
+        this.$router.push('/home');
+      });
     },
   },
 };
